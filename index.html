@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VCTI // VALORANT Personality Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <div class="container">
+            <div class="hero-section">
+                <div class="hero-badge">
+                    <span class="badge-coral">PERSONALITY TEST</span>
+                </div>
+                <h1 class="display-xl hero-title">
+                    <span class="spike-mark">
+                        <span></span>
+                        <span></span>
+                    </span>
+                    VCTI
+                </h1>
+                <p class="body-md hero-subtitle">
+                    前有MBTI，后有SBTI，CSGO有CSTI，无畏契约有VCTI。
+                    发现你的 VALORANT 玩家人格类型。
+                </p>
+                <div class="dimensions-grid">
+                    <div class="dimension-card">
+                        <div class="dimension-letter">D</div>
+                        <div class="dimension-label">冲锋型</div>
+                        <div class="dimension-vs">vs 稳健型 C</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-letter">S</div>
+                        <div class="dimension-label">侦察型</div>
+                        <div class="dimension-vs">vs 直觉型 N</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-letter">T</div>
+                        <div class="dimension-label">工具型</div>
+                        <div class="dimension-vs">vs 核心型 F</div>
+                    </div>
+                    <div class="dimension-card">
+                        <div class="dimension-letter">J</div>
+                        <div class="dimension-label">竞技型</div>
+                        <div class="dimension-vs">vs 娱乐型 P</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions-card">
+                <h2 class="title-lg">测试说明</h2>
+                <div class="instructions-grid">
+                    <div class="instruction-item">
+                        <div class="instruction-number">1</div>
+                        <div class="instruction-text">
+                            <h4>8 道问题</h4>
+                            <p>基于游戏习惯、团队角色、心态偏好的深度问题</p>
+                        </div>
+                    </div>
+                    <div class="instruction-item">
+                        <div class="instruction-number">2</div>
+                        <div class="instruction-text">
+                            <h4>无需思考</h4>
+                            <p>选择第一反应的答案，结果会更准确</p>
+                        </div>
+                    </div>
+                    <div class="instruction-item">
+                        <div class="instruction-number">3</div>
+                        <div class="instruction-text">
+                            <h4>获得你的 4 字母类型</h4>
+                            <p>DSTJ / DSFJ / DNTJ 等 16 种独特的玩家人格</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-row">
+                <button onclick="startTest()" class="btn-primary" style="height: 48px; padding: 0 28px; font-size: 16px;">
+                    开始测试 →
+                </button>
+                <p class="caption" style="margin-top: 16px;">约 2 分钟完成</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEST PAGE -->
+    <div id="test-page" class="page">
+        <div class="container">
+            <div class="progress-header">
+                <div class="progress-meta">
+                    <span class="caption-uppercase">Question <span id="current-num">01</span> / 08</span>
+                    <span class="caption">当前类型: <span id="current-type-preview">----</span></span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar-fill" class="progress-bar-fill" style="width: 12.5%;"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question-text" class="display-md question-text"></h2>
+                <div id="options-list" class="options-list">
+                    <!-- Options injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESULT PAGE -->
+    <div id="result-page" class="page">
+        <div class="container">
+            <div class="result-header">
+                <p class="caption-uppercase">Your VCTI Type</p>
+                <h1 id="result-type" class="result-type"></h1>
+                <h2 id="result-name" class="result-name"></h2>
+                <span id="result-badge" class="badge-pill"></span>
+            </div>
+
+            <div class="result-card-main">
+                <div class="result-grid-2">
+                    <div class="result-info-block">
+                        <h4>代表角色</h4>
+                        <p id="result-agent"></p>
+                    </div>
+                    <div class="result-info-block">
+                        <h4>代表玩家</h4>
+                        <p id="result-player"></p>
+                    </div>
+                </div>
+
+                <div class="result-features">
+                    <h4>核心特征</h4>
+                    <ul id="result-features-list" class="features-list">
+                        <!-- Features injected here -->
+                    </ul>
+                </div>
+
+                <div class="result-quote-block">
+                    <p id="result-quote" class="result-quote"></p>
+                    <p id="result-quote-author" class="result-quote-author"></p>
+                </div>
+
+                <div class="result-grid-2">
+                    <div class="result-info-block">
+                        <h4>适合段位</h4>
+                        <p id="result-rank"></p>
+                    </div>
+                    <div class="result-info-block">
+                        <h4>致命弱点</h4>
+                        <p id="result-weakness"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dimension-breakdown-card">
+                <h3 class="title-md">维度分析</h3>
+                <div id="breakdown-grid" class="breakdown-grid">
+                    <!-- Breakdown items injected here -->
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button onclick="shareResult()" class="btn-primary">
+                    分享结果
+                </button>
+                <button onclick="restartTest()" class="btn-secondary">
+                    再测一次
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

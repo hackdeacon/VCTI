@@ -1,0 +1,98 @@
+# ===================================
+# macOS
+# ===================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ===================================
+# Windows
+# ===================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===================================
+# Editor & IDE
+# ===================================
+# VS Code
+.vscode/
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ===================================
+# Python
+# ===================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ===================================
+# Node.js (if needed later)
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ===================================
+# Temporary Files
+# ===================================
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# ===================================
+# Project Specific
+# ===================================
+# Keep output files (we want to keep the VALORANT data files)
+# output/*.md is kept
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# ===================================
+# Git Patches
+# ===================================
+*.patch
+*.diff
